@@ -44,19 +44,19 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                leading: Icon(Icons.language, color: Colors.blue),
-                title: Text('English'),
+                leading: const Icon(Icons.language, color: Colors.blue),
+                title: const Text('English'),
                 onTap: () {
-                  context.setLocale(Locale('en', 'US'));
+                  context.setLocale(const Locale('en', 'US'));
                   Navigator.pop(context);
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: Icon(Icons.language, color: Colors.green),
-                title: Text('Arabic'),
+                leading: const Icon(Icons.language, color: Colors.green),
+                title: const Text('Arabic'),
                 onTap: () {
-                  context.setLocale(Locale('ar', 'EG'));
+                  context.setLocale(const Locale('ar', 'EG'));
                   Navigator.pop(context);
                 },
               ),
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.account_circle),
+            icon: const Icon(Icons.account_circle),
             onPressed: () {
               Navigator.push(
                 context,
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            const DrawerHeader(
               child: Text('Header'),
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -110,14 +110,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: Text('home'.tr()),
-              leading: Icon(Icons.home),
+              leading: const Icon(Icons.home),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
               },
             ),
             ListTile(
               title: Text('dark_mode'.tr()),
-              leading: Icon(Icons.brightness_6),
+              leading: const Icon(Icons.brightness_6),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
                 widget.toggleTheme(); // Toggle theme
@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: Text('about_us'.tr()),
-              leading: Icon(Icons.help),
+              leading: const Icon(Icons.help),
               onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, AboutUsScreen.routeName);
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: Text('sign_out'.tr()),
-              leading: Icon(Icons.exit_to_app),
+              leading: const Icon(Icons.exit_to_app),
               onTap: () async {
                 try {
                   await FirebaseAuth.instance
@@ -150,10 +150,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
               title: Text('change_language'.tr()),
-              leading: Icon(Icons.language),
+              leading: const Icon(Icons.language),
               onTap: () {
                 _showLanguageDialog(context);
               },
@@ -172,15 +172,15 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             label: 'home'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
+            icon: const Icon(Icons.grid_view),
             label: 'grid'.tr(),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            icon: const Icon(Icons.notifications),
             label: 'notifications'.tr(),
           ),
         ],
