@@ -45,6 +45,7 @@ class _LoginState extends State<Login> {
         setState(() {
           _isInternetConnected = false;
         });
+        _showNoInternetDialog();
       }
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(tr('failed_to_sign_in') + e.message!)),
@@ -63,6 +64,58 @@ class _LoginState extends State<Login> {
         SnackBar(content: Text(tr('error') + e.message!)),
       );
     }
+  }
+
+  void _showNoInternetDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: tr('no_internet'),
+                  style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          content: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: tr('please_check_your_connection'),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                tr('ok'),
+                style: const TextStyle(
+                  color: Colors.blue,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -86,62 +139,56 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: <Widget>[
-                    if (!_isInternetConnected) ...[
-                      Text(
-                        tr('no_internet_connection'),
-                        style: TextStyle(
-                          color: Colors.red,
-                        ),
-                      ),
-                    ],
                     Text(
                       tr('welcome_message'),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 64,
                         color: Color(0xFF1865A9),
                         fontFamily: 'Dynalight',
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Image.asset('assets/image/Frame 14.png'),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
                       tr('login_prompt'),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Color(0xFF1865A9),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     TextField(
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: tr('email_label'),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 1.0,
                           ),
                         ),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextField(
                       controller: _passwordController,
                       decoration: InputDecoration(
                         labelText: tr('password_label'),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 1.0,
                           ),
                         ),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
                       ),
                       obscureText: true,
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: [
                         Checkbox(
@@ -153,38 +200,38 @@ class _LoginState extends State<Login> {
                           },
                         ),
                         Text(tr('stay_signed_in')),
-                        Spacer(),
+                        const Spacer(),
                         TextButton(
                           onPressed: _resetPassword,
                           child: Text(
                             tr('forgot_password'),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Color(0xFF1865A9),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Center(
                       child: SizedBox(
                         width: 300,
                         height: 48,
                         child: ElevatedButton(
                           onPressed: _login,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF1865A9),
+                          ),
                           child: Text(
                             tr('login_button'),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF1865A9),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Center(
                       child: GestureDetector(
                         onTap: () {
@@ -193,11 +240,11 @@ class _LoginState extends State<Login> {
                         child: Text.rich(
                           TextSpan(
                             text: tr('not_registered_yet'),
-                            style: TextStyle(color: Colors.red),
+                            style: const TextStyle(color: Colors.red),
                             children: [
                               TextSpan(
                                 text: ' ' + tr('create_account'),
-                                style: TextStyle(color: Colors.black),
+                                style: const TextStyle(color: Colors.black),
                               ),
                             ],
                           ),
