@@ -25,7 +25,7 @@ class Grid extends StatelessWidget {
               crossAxisCount: 2,
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
-              children: [
+              children: const [
                 ServiceTile(icon: Icons.location_on, label: 'GPS'),
                 ServiceTile(icon: Icons.access_time, label: 'Memories'),
                 ServiceTile(icon: Icons.add, label: 'Add Service'),

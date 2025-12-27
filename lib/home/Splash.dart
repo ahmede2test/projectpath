@@ -14,7 +14,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, Login.routeName);
     });
   }
@@ -25,7 +25,7 @@ class _SplashState extends State<Splash> {
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Image.asset('assets/image/image 1.png'),
-          Text('MindPath',
+          const Text('MindPath',
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
